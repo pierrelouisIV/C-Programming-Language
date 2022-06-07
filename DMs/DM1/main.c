@@ -27,6 +27,25 @@ double **init_matrix(u64 n)
     return data;
 }
 
+// init with a random distrib :
+double **alea_matrix(u64 n)
+{
+    //
+    time_t t;
+    srand((unsigned) time(&t));
+
+    //
+    double **data = init_matrix(n);
+
+    //
+    for(u64 i = 0; i < n; ++i)
+        for(u64 j = 0; j < n; ++j)
+            data[i][j] = rand() % 9999;
+
+    //
+    return data;
+}
+
 
 //
 void free_matrix(double **data, u64 n)
@@ -168,10 +187,27 @@ int main(int argc, char **argv)
         free_matrix(B, m);
 
     }
+    else if (argc == 2)
+    {
+        //
+        u64 n = atoi(argv[1]);
+
+        //
+        double **A = alea_matrix(n);
+        double **B = alea_matrix(n);
+
+        double **C = dot_matrix(A, B, n, n);
+
+        //
+        free_matrix(A, n);
+        free_matrix(B, n);
+        free_matrix(C, n);
+    }
     else
     {
         //
         printf("Usage: %s [matrixA] [matrixB] \n", argv[0]);
+        printf("Or Usage: %s [dim of the matrix] \n", argv[0]);
     }
 
     return 0;
