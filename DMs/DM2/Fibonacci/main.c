@@ -24,30 +24,26 @@ u64 fibo_recursif(u64 n)
 u64 fibo_dynamic(u64 n)
 {
     // allocate mem
+    u64 u0 = 0;
+    u64 u1 = 1;
     u64 res;
-    u64 * T = malloc(sizeof(u64) * n);
 
     // algorithm
     for(u64 i = 0; i < n; ++i)
     {
         //
-        if (i == 0 || i == 1)
-        {
-            T[i] = 1;
-        }
-        else
-            T[i] = T[i-1] + T[i-2];
+        res = u0 + u1;
 
         //
-        // printf("%llu ", T[i]);
+        // printf("%llu ", res);
+        
+        //
+        u0 = u1;
+        u1 = res;
     }
-    res = *(T + (n-1));
 
-    // free mem
-    free(T);
-    
     //
-    return res;
+    return u0;
 }
 
 
