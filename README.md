@@ -1,8 +1,11 @@
-# *Exercices en C*
+# *C Programming Language*
 
-## Sommaire
-1. Petits exercices sur les tableaux à deux dimensions en c
-2. DMs
-3. ...
+## Presentation
 
+This repository contains codes in C from Books and exercies.
 
+## Summary
+1. Head First C book
+2. Matrix in C
+3. DMs
+4. ...
